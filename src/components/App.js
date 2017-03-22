@@ -1,15 +1,13 @@
 import React from 'react'
+import TweetList from './TweetList'
+
+const tweets = [
+  { id: 0, name: 'Supasate Choochaisri', username: 'kaizerwing', tweetText: 'Lorem Ipsum ...' },
+  { id: 1, name: 'Arnupharp Viratanapanu', username: 'topscores', tweetText: 'Lorem Ipsum ...' },
+]
 
 const App = () => (
-  <div className="container">
-    <div className="jumbotron">
-      <h1 style={{ color: '#000' }}>Hello, world!</h1>
-      <p>...</p>
-      <p>
-        <a className="btn btn-primary btn-lg" href="/">Learn more</a>
-      </p>
-    </div>
-  </div>
+  <TweetList tweets={tweets} />
 )
 
 export default App
