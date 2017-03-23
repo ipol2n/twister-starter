@@ -58,8 +58,6 @@ class NewTweet extends Component {
     })
   }
 
-
-
   render() {
     return (
       <div className="new-tweet first-item">

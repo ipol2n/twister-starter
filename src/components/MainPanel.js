@@ -46,12 +46,14 @@ class MainPanel extends Component {
     const { name, username, tweets } = this.state
     return (
       <div className="main-panel">
+        {this.props.enableTweet?
         <NewTweet
           name={name}
           username={username}
           addToTweetList={this.addToTweetList}
 
         />
+        : null }
         <TweetList tweets={tweets} />
       </div>
     )
