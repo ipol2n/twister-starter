@@ -1,9 +1,10 @@
 import React from 'react'
 // import MainPanel from './MainPanel'
-import Profile from './Profile'
+import BodyContainer from './BodyContainer'
 
 const App = () => (
-  <Profile />
+  // <BodyContainer ownerUsername='ipol2n' ownerName='Kittiporn Korprasertthaworn' />
+  <BodyContainer ownerUsername='topscores' ownerName='Arnupharp Viratanapanu' />
 )
 
 export default App

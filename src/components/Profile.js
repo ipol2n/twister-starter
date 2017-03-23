@@ -3,7 +3,7 @@ import ProfileHeader from './ProfileHeader'
 import ProfileDetail from './ProfileDetail'
 import ProfileFollow from './ProfileFollow'
 
-class Profile extends Component { 
+class Profile extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,32 +14,25 @@ class Profile extends Component {
       numFollowings: 345,
       isFollowing: true,
     }
-    this.toggleFollow = this.toggleFollow.bind(this)
-  }
-
-  toggleFollow() {
-    this.setState({
-      isFollowing: !this.state.isFollowing,
-    })
   }
 
   render() {
     return (
       <div className="profile">
         <ProfileHeader
-          name={this.state.name}
-          username={this.state.username}
+          name={this.props.name}
+          username={this.props.username}
         />
         <ProfileDetail
           numTweets={this.state.numTweets}
           numFollowers={this.state.numFollowers}
           numFollowings={this.state.numFollowings}
         />
-        { this.state.isOwnProfile
+        { this.props.isOwnProfile
             ? null
         : <ProfileFollow
-            isFollowing={this.state.isFollowing}
-            handleToggleFollow={this.toggleFollow}
+            isFollowing={this.props.isFollowing}
+            handleToggleFollow={this.props.handleToggleFollow}
         /> }
       </div>
     )
