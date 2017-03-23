@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TweetList from './TweetList'
 import NewTweet from './NewTweet'
+import config from '../config'
 
 class MainPanel extends Component {
   constructor(props) {
@@ -14,6 +15,19 @@ class MainPanel extends Component {
       ],
     }
     this.addToTweetList = this.addToTweetList.bind(this)
+  }
+
+  componentDidMount() {
+    const url = `http://${config.api.host}:${config.api.port}/api/tweets`
+    const filter = `{ "where": { "username": "${this.state.username}" }}`
+    fetch(`${url}?filter=${filter}`, { mode: 'cors' })
+    .then(response => response.json())
+    .then((tweets) => {
+      console.log(tweets)
+      this.setState({
+        tweets: tweets,
+      })
+    })
   }
 
   addToTweetList(tweet) {
@@ -36,6 +50,7 @@ class MainPanel extends Component {
           name={name}
           username={username}
           addToTweetList={this.addToTweetList}
+
         />
         <TweetList tweets={tweets} />
       </div>

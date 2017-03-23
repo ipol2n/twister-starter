@@ -49,13 +49,16 @@ class NewTweet extends Component {
     })
     .then(response => response.json())
     .then((json) => {
-      console.log(json)
-      this.props.addToTweetList(tweet)
-      this.setState({
-        tweetText: '',
-      })
+      if (typeof json.id !== 'undefined') {
+        this.props.addToTweetList(json)
+        this.setState({
+          tweetText: '',
+        })
+      }
     })
   }
+
+
 
   render() {
     return (
