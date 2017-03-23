@@ -24,9 +24,9 @@ class Profile extends Component {
           username={this.props.username}
         />
         <ProfileDetail
-          numTweets={this.state.numTweets}
-          numFollowers={this.state.numFollowers}
-          numFollowings={this.state.numFollowings}
+          numTweets={this.props.numTweets}
+          numFollowers={this.props.numFollowers}
+          numFollowings={this.props.numFollowings}
         />
         { this.props.isOwnProfile
             ? null
